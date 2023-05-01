@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Aircraft>
+	<AircraftType>
+		<ElementXpath>//*[contains(@href,'table/AircraftType')]</ElementXpath>
+	</AircraftType>
+
+	<AircraftDetails>
+		<ElementXpath>(//span[@class='oi oi-pencil'])</ElementXpath>
+	</AircraftDetails>
+
+	<DeleteAircraftDetails>
+		<ElementXpath>(//span[@class='oi oi-trash'])</ElementXpath>
+	</DeleteAircraftDetails>
+
+	<Delete_Btn>
+		<ElementXpath>//button[text()='Delete']</ElementXpath>
+	</Delete_Btn>
+
+	<AircraftTypeId>
+		<ElementXpath>//label[text()='Id']/following-sibling::input</ElementXpath>
+	</AircraftTypeId>
+
+	<AircraftTypeIcao>
+		<ElementXpath>//label[text()='Icao']/following-sibling::input</ElementXpath>
+	</AircraftTypeIcao>
+
+	<AircraftTypeIata>
+		<ElementXpath>//label[text()='Iata']/following-sibling::input</ElementXpath>
+	</AircraftTypeIata>
+
+	<AircraftTypeEngine>
+		<ElementXpath>//label[text()='Engine']/following-sibling::input</ElementXpath>
+	</AircraftTypeEngine>
+
+	<AircraftTypeTypeName>
+		<ElementXpath>//label[text()='Type Name']/following-sibling::input</ElementXpath>
+	</AircraftTypeTypeName>
+
+	<AircraftTypeNoOfEngines>
+		<ElementXpath>//label[text()='Number Of Engines']/following-sibling::input</ElementXpath>
+	</AircraftTypeNoOfEngines>
+
+	<AircraftTypeSizeCode>
+		<ElementXpath>//label[text()='Size Code']/following-sibling::input</ElementXpath>
+	</AircraftTypeSizeCode>
+
+	<AircraftTypeWidth>
+		<ElementXpath>//label[text()='Width']/following-sibling::input</ElementXpath>
+	</AircraftTypeWidth>
+
+	<AircraftTypeWvc>
+		<ElementXpath>//label[text()='Wvc']/following-sibling::input</ElementXpath>
+	</AircraftTypeWvc>
+
+	<AircraftTypeSpeedClass>
+		<ElementXpath>//label[text()='Speed Class']/following-sibling::input</ElementXpath>
+	</AircraftTypeSpeedClass>
+
+	<ErrorMessageText>
+		<ElementXpath>//div[contains(@id,'validation-message')]//li</ElementXpath>
+	</ErrorMessageText>
+
+	<EditAircraftTypeId>
+		<ElementXpath>//label[text()='Id']/following-sibling::input</ElementXpath>
+	</EditAircraftTypeId>
+
+	<Submit_Btn>
+		<ElementXpath>//button[@type='submit']</ElementXpath>
+	</Submit_Btn>
+
+	<Cancel_Btn>
+		<ElementXpath>//button[text()='Cancel']</ElementXpath>
+	</Cancel_Btn>
+
+	<Add_Btn>
+		<ElementXpath>//button[text()='Add']</ElementXpath>
+	</Add_Btn>
+
+	<Fetch_Id_Text_Row>
+		<ElementXpath>//tr</ElementXpath>
+	</Fetch_Id_Text_Row>
+
+	<Fetch_Id_Text_Col>
+		<ElementXpath>//td[contains(@style,'word-wrap: break-word')]</ElementXpath>
+	</Fetch_Id_Text_Col>
+
+	<Fetch_Id_Text_Col1>
+		<ElementXpath>//td[contains(@class,'font-weight-bold mb-1 text')]</ElementXpath>
+	</Fetch_Id_Text_Col1>
+
+	<MessageValidation>
+		<ElementXpath>(//p[@class='blazored-toast-message'])</ElementXpath>
+	</MessageValidation>
+
+	<UserName>
+		<ElementXpath>//input[@formcontrolname='username']</ElementXpath>
+	</UserName>
+
+	<Password>
+		<ElementXpath>//input[@formcontrolname='password']</ElementXpath>
+	</Password>
+
+	<LOGIN_BUTTON>
+		<ElementXpath>//button[@type='submit']</ElementXpath>
+	</LOGIN_BUTTON>
+
+</Aircraft>
+
+
+
+

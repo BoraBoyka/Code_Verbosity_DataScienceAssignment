@@ -1,0 +1,203 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net7.0</TargetFramework>
+		<EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+		<UserSecretsId>f38838d2-a7b8-4be3-8568-76a0bc1c20d9</UserSecretsId>
+		<!--SignAssembly>false</SignAssembly-->
+	</PropertyGroup>
+  
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+		<OutputPath></OutputPath>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <SpecFlowObsoleteCodeBehindFiles Remove="Features\AircraftTypeAPITests - Copy.feature.cs" />
+	  <SpecFlowObsoleteCodeBehindFiles Remove="Features\CrudAPIAirlines - Copy.feature.cs" />
+	  <SpecFlowObsoleteCodeBehindFiles Remove="Features\CrudAPIArrivalFlights.feature.cs" />
+	  <SpecFlowObsoleteCodeBehindFiles Remove="Features\CrudAPIDepartureFlights - Copy.feature.cs" />
+	  <SpecFlowObsoleteCodeBehindFiles Remove="Features\CrudAPIRoleBasedAuthorizationTests.feature.cs" />
+	  <SpecFlowObsoleteCodeBehindFiles Remove="Features\CrudAPIStands - Copy.feature.cs" />
+	  <SpecFlowObsoleteCodeBehindFiles Remove="Features\CrudAPIStands.feature.cs" />
+	  <SpecFlowObsoleteCodeBehindFiles Remove="Features\CrudAPIUnmatchedFlightPlan.feature.cs" />
+	  <SpecFlowObsoleteCodeBehindFiles Remove="Features\CrudAPIWakeTurbulenceCategory - Copy.feature.cs" />
+	  <SpecFlowObsoleteCodeBehindFiles Remove="Features\CrudAPIWakeTurbulenceCategory.feature.cs" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Acdm.InformationServices.Dto" Version="3.5.0" />
+		<PackageReference Include="DotNetSeleniumExtras.WaitHelpers" Version="3.11.0" />
+		<PackageReference Include="ExtentReports" Version="4.1.0" />
+		<PackageReference Include="Microsoft.Data.SqlClient" Version="5.1.1" />
+		<PackageReference Include="Microsoft.Extensions.Configuration" Version="7.0.0" />
+		<PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="7.0.4" />
+		<PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="7.0.0" />
+		<PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.5.0" />
+		<PackageReference Include="Microsoft.NETCore.App" Version="2.2.8" />
+		<PackageReference Include="Microsoft.UnitTestFramework.Extensions" Version="2.0.0" />
+		<PackageReference Include="MSTest.TestAdapter" Version="3.0.2" />
+		<PackageReference Include="MSTest.TestFramework" Version="3.0.2" />
+		<PackageReference Include="RestSharp.Newtonsoft.Json" Version="1.5.1" />
+		<PackageReference Include="Selenium.Support" Version="4.9.0" />
+		<PackageReference Include="Selenium.WebDriver" Version="4.9.0" />
+		<PackageReference Include="SpecFlow" Version="3.9.74" />
+		<PackageReference Include="SpecFlow.Assist.Dynamic" Version="1.4.2" />
+		<PackageReference Include="SpecFlow.MsTest" Version="3.9.74" />
+		<PackageReference Include="SpecFlow.Plus.LivingDocPlugin" Version="3.9.57" />
+		<PackageReference Include="SpecFlow.Tools.MsBuild.Generation" Version="3.9.74" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Compile Include="AssemblyInfo.cs" />
+		<Compile Include="Features\CrudAPIRoleBasedAuthorizationTests.feature.cs" />
+		<Compile Include="Features\CrudAPIFlightPlanUnmatched.feature.cs" />
+		<Compile Include="Features\CrudArrivalFlightsAPI.feature.cs" />
+		<Compile Include="Features\CrudAPISite.feature.cs" />
+		<Compile Include="Features\CrudAPIFlights.feature.cs" />
+		<Compile Include="Features\CrudAPIRunways.feature.cs" />
+		<Compile Include="Features\CrudAPIAircraftType.feature.cs" />
+		<Compile Include="Features\CrudAPISid.feature.cs" />
+		<Compile Include="Features\CrudAPISidSeparation.feature.cs" />
+		<Compile Include="Features\CrudAPISpeedSeparation.feature.cs">
+		  <DesignTime>True</DesignTime>
+		  <AutoGen>True</AutoGen>
+		  <DependentUpon>CrudAPIAircraftType.feature</DependentUpon>
+		</Compile>
+		<Compile Include="Features\CrudAPIAuthenticationTests.feature.cs">
+		  <DesignTime>True</DesignTime>
+		  <AutoGen>True</AutoGen>
+		  <DependentUpon>CrudAPIAircraftType.feature</DependentUpon>
+		</Compile>
+		<Compile Include="Features\CrudAPIAirlines.feature.cs">
+		  <DesignTime>True</DesignTime>
+		  <AutoGen>True</AutoGen>
+		  <DependentUpon>CrudAPIAirlines.feature</DependentUpon>
+		</Compile>
+		<Compile Include="Features\CrudAPIConfiguration.feature.cs" />
+		<Compile Include="Features\CrudAPITaxiSequence.feature.cs" />
+		<Compile Include="Features\CrudAPIStands.feature.cs" />
+		<Compile Include="Features\CrudAPIWakeSeparationTime.feature.cs" />
+		<Compile Include="Features\CrudAPIWakeTurbulenceCategory.feature.cs" />
+		<Compile Include="Features\CrudAPIDepartureFlights.feature.cs" />
+		<Compile Include="Steps\CrudAPISpeedSeparationSteps.cs" />
+		<Compile Include="Steps\CrudAPISidSeparationSteps.cs" />
+		<Compile Include="Steps\CrudAPISidSteps.cs" />
+		<Compile Include="Steps\CrudAPIArrivalFlightSteps.cs" />
+		<Compile Include="Steps\CrudAPIAuditArrivalFlightSteps.cs" />
+		<Compile Include="Steps\CrudAPIAuditUnmatchedFlightPlanSteps.cs" />
+		<Compile Include="Steps\CrudAPIAuditDepartureFlightSteps.cs" />
+		<Compile Include="Steps\CrudAPIDepartureFlightSteps.cs" />
+		<Compile Include="Steps\CrudAPIRoleBasedAuthorizationTestsSteps.cs" />
+	
+	<Compile Include="Steps\CrudAPISiteSteps.cs" />
+	
+	<Compile Include="Steps\CrudAPIRunwaySteps.cs" />
+	
+	<Compile Include="Steps\CrudAPIAuthenticationTestsSteps.cs" />
+	
+	<Compile Include="Steps\CrudAPIAircraftTypeSteps.cs" />
+	
+	<Compile Include="Steps\CrudAPIFlightSteps.cs" />
+	
+	<Compile Include="Steps\CrudAPIAirlineSteps.cs" />
+	
+	<Compile Include="Steps\CrudAPIConfigurationSteps.cs" />
+	</ItemGroup>
+	<ItemGroup>
+		<Compile Include="Drivers\Startup.cs" />
+		<Compile Include="Steps\CrudAPITaxiSequenceSteps.cs" />
+		<Compile Include="Steps\CrudAPIStandsSteps.cs" />
+		<Compile Include="Steps\CrudAPIUnmatchedFlightPlanSteps.cs" />
+		<Compile Include="Steps\CrudAPIWakeSeparationTime.cs" />
+		<Compile Include="Steps\CrudAPIWakeTurbulenceCategory.cs" />
+	</ItemGroup>
+	<ItemGroup>
+		<Folder Include="Drivers\" />
+		<Folder Include="ObjectRepository\" />		
+	</ItemGroup>
+	<ItemGroup>
+	  <ProjectReference Include="..\ACDMAutomation.Shared\ACDMAutomation.Shared.csproj" />
+	</ItemGroup>
+
+	<!--ItemGroup>
+	  <Reference Include="APVeAutomation">		 
+		  <HintPath>..\..\APVeAutomation\bin\Debug\netcoreapp3.1\APVeAutomation.dll</HintPath>
+	  </Reference>
+	</ItemGroup-->
+
+	<ItemGroup>
+		<None Update="appSettings.json">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</None>
+		<None Update="Configuration\APIConfiguration.json">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</None>
+		<None Update="Configuration\ConfigSettings.json">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</None>
+		<None Update="DataSheet\TestData.json">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <SpecFlowFeatureFiles Update="Features\CrudAPISidSeparation.feature">
+	    <Visible>$(UsingMicrosoftNETSdk)</Visible>
+	    <CodeBehindFile>%(RelativeDir)%(Filename).feature$(DefaultLanguageSourceExtension)</CodeBehindFile>
+	  </SpecFlowFeatureFiles>
+	  <SpecFlowFeatureFiles Update="Features\CrudAPISpeedSeparation.feature">
+	    <Visible>$(UsingMicrosoftNETSdk)</Visible>
+	    <CodeBehindFile>%(RelativeDir)%(Filename).feature$(DefaultLanguageSourceExtension)</CodeBehindFile>
+	  </SpecFlowFeatureFiles>
+	  <SpecFlowFeatureFiles Update="Features\CrudAPISite.feature">
+	    <Visible>$(UsingMicrosoftNETSdk)</Visible>
+	    <CodeBehindFile>%(RelativeDir)%(Filename).feature$(DefaultLanguageSourceExtension)</CodeBehindFile>
+	    <LastGenOutput>CrudAPISite.feature.cs</LastGenOutput>
+	    <Generator>SpecFlowSingleFileGenerator</Generator>
+	  </SpecFlowFeatureFiles>
+	  <SpecFlowFeatureFiles Update="Features\CrudAPIRunways.feature">
+	    <Visible>$(UsingMicrosoftNETSdk)</Visible>
+	    <CodeBehindFile>%(RelativeDir)%(Filename).feature$(DefaultLanguageSourceExtension)</CodeBehindFile>
+	    <LastGenOutput>CrudAPISite.feature.cs</LastGenOutput>
+	    <Generator>SpecFlowSingleFileGenerator</Generator>
+	  </SpecFlowFeatureFiles>
+	  <SpecFlowFeatureFiles Update="Features\CrudAPIAuthenticationTests.feature">
+	    <Visible>$(UsingMicrosoftNETSdk)</Visible>
+	    <CodeBehindFile>%(RelativeDir)%(Filename).feature$(DefaultLanguageSourceExtension)</CodeBehindFile>
+	    <LastGenOutput>CrudAPIAircraftType.feature.cs</LastGenOutput>
+	    <Generator>SpecFlowSingleFileGenerator</Generator>
+	  </SpecFlowFeatureFiles>
+	  <SpecFlowFeatureFiles Update="Features\CrudAPIAircraftType.feature">
+	    <Generator>SpecFlowSingleFileGenerator</Generator>
+	    <LastGenOutput>CrudAPIAircraftType.feature.cs</LastGenOutput>
+	  </SpecFlowFeatureFiles>
+	  <SpecFlowFeatureFiles Update="Features\CrudAPIAirlines.feature">
+	    <Generator>SpecFlowSingleFileGenerator</Generator>
+	    <LastGenOutput>CrudAPIAirlines.feature.cs</LastGenOutput>
+	  </SpecFlowFeatureFiles>
+	  <SpecFlowFeatureFiles Update="Features\CrudAPIConfiguration.feature">
+	    <Visible>$(UsingMicrosoftNETSdk)</Visible>
+	    <CodeBehindFile>%(RelativeDir)%(Filename).feature$(DefaultLanguageSourceExtension)</CodeBehindFile>
+	  </SpecFlowFeatureFiles>
+	  <SpecFlowFeatureFiles Update="Features\CrudAPITaxiSequence.feature">
+	    <Visible>$(UsingMicrosoftNETSdk)</Visible>
+	    <CodeBehindFile>%(RelativeDir)%(Filename).feature$(DefaultLanguageSourceExtension)</CodeBehindFile>
+	  </SpecFlowFeatureFiles>
+	  <SpecFlowFeatureFiles Update="Features\CrudAPIWakeSeparationTime.feature">
+	    <Visible>$(UsingMicrosoftNETSdk)</Visible>
+	    <CodeBehindFile>%(RelativeDir)%(Filename).feature$(DefaultLanguageSourceExtension)</CodeBehindFile>
+	  </SpecFlowFeatureFiles>
+	</ItemGroup>
+	
+	<Target Name="PostPublish" BeforeTargets="Publish">
+		<Exec Command="move $(PublishDir)\runtimes $(PublishDir)\bin" />
+	</Target>
+
+	<Target Name="VSTestIfTestProject">
+		<CallTarget Targets="VSTest" Condition="'$(IsTestProject)' == 'true'" />
+	</Target>
+
+	<Target Name="VSTest">
+		<MSBuild Projects="@(ProjectReference)" Targets="VSTestIfTestProject" />
+	</Target>
+</Project>
