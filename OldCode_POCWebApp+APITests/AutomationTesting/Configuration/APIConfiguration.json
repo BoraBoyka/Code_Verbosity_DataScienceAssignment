@@ -1,0 +1,49 @@
+﻿{
+  "QAEnvDetails": {
+    "authEnvironment": "https://apvetestaks.eastus.cloudapp.azure.com/authapi/v1/api/Authentication/login ",
+    "userName": "super",
+    "site": "ABC",
+    "password": "User8273!",
+    //"BASE_URL": "https://acdmqa.eastus2.cloudapp.azure.com/",
+    "BASE_URL": "https://abc.qa.test.sita-tam.aero/",
+    "AuthAPIURL": "authapi/v1/api/Authentication/login",
+    "AircraftTypeAPIURL": "acdminformationservices/api/AircraftType",
+    "ConfigurationAPIURL": "acdminformationservices/api/Configuration",
+    "AirlinesAPIURL": "acdminformationservices/api/Airline",
+    "FlightAPIURL": "acdminformationservices/api/Flight",
+    "SignatureKey": "aba85835-eb35-49af-b6fa-0402aea00ae4",
+    "Product": "acdm",
+    "Name": "Test",
+    "SiteId": "1"
+  },
+  "DEVEnvDetails": {
+    "authEnvironment": "https://apvedevaks.eastus.cloudapp.azure.com/authapi/v1/api/Authentication/login ",
+    "userName": "super",
+    "site": "ABC",
+    "password": "User8273!",
+    "BASE_URL": "https://acdmdev3.eastus2.cloudapp.azure.com/",
+    "AuthAPIURL": "authapi/v1/api/Authentication/login",
+    "AircraftTypeAPIURL": "acdmconfigurationapi/api/AircraftType",
+    "ConfigurationAPIURL": "acdminformationservices/api/Configuration",
+    "AirlinesAPIURL": "acdminformationservices/api/Airline",
+    "FlightAPIURL": "acdminformationservices/api/Flight"
+  },
+  "QAEnvDetails1": {
+    "authEnvironment": "https://apvetestaks.eastus.cloudapp.azure.com/authapi/v1/api/Authentication/login ",
+    "userName": "super",
+    "site": "ABC",
+    "password": "User8273!",
+    "BASE_URL": "https://apvetestaks.eastus.cloudapp.azure.com/",
+    "AuthAPIURL": "authapi/v1/api/Authentication/login",
+    "DailyAPIURL": "dailyapi/v3/api/Dailies?orderBy=id&top=5&descending=true"
+  },
+  "DEVEnvDetails1": {
+    "authEnvironment": "https://apvedevaks.eastus.cloudapp.azure.com/authapi/v1/api/Authentication/login ",
+    "userName": "super",
+    "site": "ABC",
+    "password": "User8273!",
+    "BASE_URL": "https://apvedevaks.eastus.cloudapp.azure.com/",
+    "AuthAPIURL": "authapi/v1/api/Authentication/login",
+    "DailyAPIURL": "dailyapi/v3/api/Dailies?orderBy=id&top=5&descending=true"
+  }
+}

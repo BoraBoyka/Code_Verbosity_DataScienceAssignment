@@ -1,0 +1,10 @@
+﻿{
+  "BrowserType": "Chrome",
+  "OS": "WINDOWS",
+  "ApplicationENV_URL": "https://acdmqa.eastus2.cloudapp.azure.com/acdmadminui/table/AircraftType",
+  "ChromeVersion": "103.0.5060.53",
+  "EdgeVersion": "99.0.1150.30",
+  "connectionString": "Data Source=acdmqadbserver.database.windows.net;Initial Catalog=acdm-data;User ID = sita; Password = superuaeSIT8273!@",
+  //"ENV": "DEVEnvDetails"
+  "ENV": "QAEnvDetails"
+}
