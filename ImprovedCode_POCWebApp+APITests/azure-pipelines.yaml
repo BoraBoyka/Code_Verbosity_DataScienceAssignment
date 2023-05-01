@@ -1,0 +1,157 @@
+# ASP.NET Core (.NET Framework)
+# Build and test ASP.NET Core projects targeting the full .NET Framework.
+# Add steps that publish symbols, save build artifacts, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
+
+trigger:
+  paths:
+    include:
+    - ACDMAutomation/ACDMAutomation.Shared
+
+pool:
+  vmImage: 'windows-latest'
+
+variables:
+  - name: buildPlatform
+    value: 'Any CPU'
+  - name: buildConfiguration
+    value: 'Release'
+  - group: acdm-automation
+
+steps:
+- task: NuGetToolInstaller@1
+  displayName: "Install NuGet tools"
+
+- task: NuGetCommand@2
+  displayName: "Restore Solution"
+  inputs:
+    command: 'restore'
+    restoreSolution: '$(solution)'
+    feedsToUse: 'select'
+    vstsFeed: '87cc3c19-3c50-45de-8081-19b68ff91d3e/3ff61d4d-bbd7-4511-991f-98b5c4ae8b8c'
+
+# - task: Bash@3
+#   name: injectSecrets
+#   displayName: "Inject Secrets into ConfigSettings.Json"
+#   inputs:
+#     workingDirectory: $(System.DefaultWorkingDirectory)/ACDMAutomation/Configuration
+#     script: |
+#       configPath="$(System.DefaultWorkingDirectory)/ACDMAutomation/Configuration/ConfigSettings.Json"
+#       jq '.connectionString="$(acdm-auto-connectionString)"' $configPath > newfile.json ; cp newfile.json $configPath ; rm newfile.json
+#       jq '.ClientId="$(acdm-auto-ClientId)"' $configPath > newfile.json ; cp newfile.json $configPath ; rm newfile.json
+#       jq '.ClientSecret="$(acdm-auto-ClientSecret)"' $configPath > newfile.json ; cp newfile.json $configPath ; rm newfile.json
+#       jq '.ClientIdForSiteNotExist="$(acdm-auto-ClientIdForSiteNotExist)"' $configPath > newfile.json ; cp newfile.json $configPath ; rm newfile.json
+#       jq '.ClientSecretForSiteNotExist="$(acdm-auto-ClientSecretForSiteNotExist)"' $configPath > newfile.json ; cp newfile.json $configPath ; rm newfile.json
+#       jq '.ClientIdForOneSite="$(acdm-auto-ClientIdForOneSite)"' $configPath > newfile.json ; cp newfile.json $configPath ; rm newfile.json
+#       jq '.ClientSecretForOneSite="$(acdm-auto-ClientSecretForOneSite)"' $configPath > newfile.json ; cp newfile.json $configPath ; rm newfile.json
+#       jq '.ClientIdForNoSiteClaims="$(acdm-auto-ClientIdForNoSiteClaims)"' $configPath > newfile.json ; cp newfile.json $configPath ; rm newfile.json
+#       jq '.ClientSecretForNoSiteClaims="$(acdm-auto-ClientSecretForNoSiteClaims)"' $configPath > newfile.json ; cp newfile.json $configPath ; rm newfile.json
+#       jq '.ClientIdForSiteClaimsNotInDB="$(acdm-auto-ClientIdForSiteClaimsNotInDB)"' $configPath > newfile.json ; cp newfile.json $configPath ; rm newfile.json
+#       jq '.ClientSecretForSiteClaimsNotInDB="$(acdm-auto-ClientSecretForSiteClaimsNotInDB)"' $configPath > newfile.json ; cp newfile.json $configPath ; rm newfile.json
+
+- task: PowerShell@2
+  name: injectAPISecrets
+  displayName: "Inject Secrets into API ConfigSettings.Json"
+  inputs:
+    targetType: 'inline'
+    script: |
+      $cfg = "$(System.DefaultWorkingDirectory)/ACDMAutomation/ACDMAutomation.API.Tests/Configuration/ConfigSettings.Json"
+      $c = Get-Content $cfg | ConvertFrom-Json
+      $c.connectionString = "$(acdm-auto-connectionString)"
+      $c.ClientId = "$(acdm-auto-ClientId)"
+      $c.ClientSecret = "$(acdm-auto-ClientSecret)"
+      $c.ClientIdForSiteNotExist = "$(acdm-auto-ClientIdForSiteNotExist)"
+      $c.ClientSecretForSiteNotExist = "$(acdm-auto-ClientSecretForSiteNotExist)"
+      $c.ClientIdForOneSite = "$(acdm-auto-ClientIdForOneSite)"
+      $c.ClientSecretForOneSite = "$(acdm-auto-ClientSecretForOneSite)"
+      $c.ClientIdForNoSiteClaims = "$(acdm-auto-ClientIdForNoSiteClaims)"
+      $c.ClientSecretForNoSiteClaims = "$(acdm-auto-ClientSecretForNoSiteClaims)"
+      $c.ClientIdForSiteClaimsNotInDB = "$(acdm-auto-ClientIdForSiteClaimsNotInDB)"
+      $c.ClientSecretForSiteClaimsNotInDB = "$(acdm-auto-ClientSecretForSiteClaimsNotInDB)"
+      $c.ClientIdForNoRoleAccess = "$(acdm-auto-ClientIdForNoRoleAccess)"
+      $c.ClientSecretForNoRoleAccess = "$(acdm-auto-ClientSecretForNoRoleAccess)"
+      $c.ClientIdForAircraftReadAccess = "$(acdm-auto-ClientIdForAircraftReadAccess)"
+      $c.ClientSecretForAircraftReadAccess = "$(acdm-auto-ClientSecretForAircraftReadAccess)"
+      $c.ClientIdForAircraftWriteAccess = "$(acdm-auto-ClientIdForAircraftWriteAccess)"
+      $c.ClientSecretForAircraftWriteAccess = "$(acdm-auto-ClientSecretForAircraftWriteAccess)"
+      $c.LogInUserName = "$(acdm-auto-LogInUserName)"
+      $c.LogInPassword = "$(acdm-auto-LogInPassword)"
+      $c | ConvertTo-Json | Set-Content $cfg
+
+- task: PowerShell@2
+  name: injectUISecrets
+  displayName: "Inject Secrets into UI ConfigSettings.Json"
+  inputs:
+    targetType: 'inline'
+    script: |
+      $cfg = "$(System.DefaultWorkingDirectory)/ACDMAutomation/ACDMAutomation.UI.Tests/Configuration/ConfigSettings.Json"
+      $c = Get-Content $cfg | ConvertFrom-Json
+      $c.connectionString = "$(acdm-auto-connectionString)"
+      $c.ClientId = "$(acdm-auto-ClientId)"
+      $c.ClientSecret = "$(acdm-auto-ClientSecret)"
+      $c.ClientIdForSiteNotExist = "$(acdm-auto-ClientIdForSiteNotExist)"
+      $c.ClientSecretForSiteNotExist = "$(acdm-auto-ClientSecretForSiteNotExist)"
+      $c.ClientIdForOneSite = "$(acdm-auto-ClientIdForOneSite)"
+      $c.ClientSecretForOneSite = "$(acdm-auto-ClientSecretForOneSite)"
+      $c.ClientIdForNoSiteClaims = "$(acdm-auto-ClientIdForNoSiteClaims)"
+      $c.ClientSecretForNoSiteClaims = "$(acdm-auto-ClientSecretForNoSiteClaims)"
+      $c.ClientIdForSiteClaimsNotInDB = "$(acdm-auto-ClientIdForSiteClaimsNotInDB)"
+      $c.ClientSecretForSiteClaimsNotInDB = "$(acdm-auto-ClientSecretForSiteClaimsNotInDB)"
+      $c.ClientIdForNoRoleAccess = "$(acdm-auto-ClientIdForNoRoleAccess)"
+      $c.ClientSecretForNoRoleAccess = "$(acdm-auto-ClientSecretForNoRoleAccess)"
+      $c.ClientIdForAircraftReadAccess = "$(acdm-auto-ClientIdForAircraftReadAccess)"
+      $c.ClientSecretForAircraftReadAccess = "$(acdm-auto-ClientSecretForAircraftReadAccess)"
+      $c.ClientIdForAircraftWriteAccess = "$(acdm-auto-ClientIdForAircraftWriteAccess)"
+      $c.ClientSecretForAircraftWriteAccess = "$(acdm-auto-ClientSecretForAircraftWriteAccess)"
+      $c.LogInUserName = "$(acdm-auto-LogInUserName)"
+      $c.LogInPassword = "$(acdm-auto-LogInPassword)"
+      $c | ConvertTo-Json | Set-Content $cfg
+
+# FOR DEBUG ONLY
+# - publish: $(System.DefaultWorkingDirectory)/ACDMAutomation/ACDMAutomation.API.Tests/Configuration/ConfigSettings.Json
+#   displayName: "Publish injected ConfigSettings.Json"
+#   artifact: injectedConfigSettings.json
+
+- task: VSBuild@1
+  inputs:
+    solution: '$(solution)'
+    msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:DesktopBuildPackageLocation="$(build.artifactStagingDirectory)\WebApp.zip" /p:DeployIisAppPath="Default Web Site"'
+    platform: '$(buildPlatform)'
+    configuration: '$(buildConfiguration)'
+    clean: true
+    
+# FOR DEBUG ONLY
+# - publish: $(System.DefaultWorkingDirectory)/ACDMAutomation/ACDMAutomation.UI.Tests/bin/Release/net6.0/Configuration/ConfigSettings.Json
+#   displayName: "Publish build ConfigSettings.Json"
+#   artifact: buildConfigSettings.json
+
+- task: VisualStudioTestPlatformInstaller@1
+  inputs:
+    packageFeedSelector: 'nugetOrg'
+    versionSelector: 'latestStable'
+- task: VSTest@2
+  continueOnError: false
+  inputs:
+    testSelector: 'testAssemblies'
+    testAssemblyVer2: |
+      $(testdll)
+      !**\*TestAdapter.dll
+      !**\obj\**
+    searchFolder: '$(System.DefaultWorkingDirectory)'
+    vsTestVersion: 'toolsInstaller'
+
+- task: CopyFiles@2
+  inputs:
+    targetFolder: '$(Build.ArtifactStagingDirectory)' 
+    CleanTargetFolder: true
+    Contents: |
+      **\Release\**
+      **\Features\**
+      **\ObjectRepository\**
+      **\*.sln
+      **\*.csproj
+
+- task: PublishBuildArtifacts@1    
+  displayName: 'Publish Artifact:'
+  inputs:
+    PathtoPublish: '$(build.artifactstagingdirectory)'
