@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ConfigurationScreen>
+
+	<Add_Btn>
+		<ElementXpath>//span[text()='ADD']</ElementXpath>
+	</Add_Btn>
+	
+	<ConfigTab_Btn>
+		<ElementXpath>//span[text()='Configuration']</ElementXpath>
+	</ConfigTab_Btn>
+
+	<ErrorMessages_Screen>
+		<ElementXpath>//ul[@class='validation-errors']//li</ElementXpath>
+	</ErrorMessages_Screen>
+	
+	<Configuration_Name>
+		<ElementXpath>//label[text()='NAME']/following-sibling::div//span[contains(@class,'telerik-blazor')]//following-sibling::input</ElementXpath>
+	</Configuration_Name>
+
+	<Configuration_Value>
+		<ElementXpath>//label[text()='VALUE']/following-sibling::div//span[contains(@class,'telerik-blazor')]//following-sibling::input</ElementXpath>
+	</Configuration_Value>
+
+	<Configuration_Description>
+		<ElementXpath>//label[text()='DESCRIPTION']/following-sibling::div//span[contains(@class,'telerik-blazor')]//following-sibling::input</ElementXpath>
+	</Configuration_Description>
+
+	<Configuration_System>
+		<ElementXpath>//label[text()='SYSTEM']/following-sibling::div//span[contains(@class,'telerik-blazor')]//following-sibling::input</ElementXpath>
+	</Configuration_System>
+
+	<Configuration_Group>
+		<ElementXpath>//label[text()='GROUP']/following-sibling::div//span[contains(@class,'telerik-blazor')]//following-sibling::input</ElementXpath>
+	</Configuration_Group>
+
+	<Update_Btn>
+		<ElementXpath>//span[text()='Update']</ElementXpath>
+	</Update_Btn>
+
+	<Name_Textbox_DisableCheck>
+		<ElementXpath>//label[text()='NAME']/following-sibling::div[@class='k-form-field-wrap']//span[contains(@class,'k-disabled telerik-blazor')]//input</ElementXpath>
+	</Name_Textbox_DisableCheck>
+
+	<Description_Textbox_DisableCheck>
+		<ElementXpath>//label[text()='DESCRIPTION']/following-sibling::div[@class='k-form-field-wrap']//span[contains(@class,'k-disabled telerik-blazor')]//input</ElementXpath>
+	</Description_Textbox_DisableCheck>
+
+	<System_Textbox_DisableCheck>
+		<ElementXpath>//label[text()='SYSTEM']/following-sibling::div[@class='k-form-field-wrap']//span[contains(@class,'k-disabled telerik-blazor')]//input</ElementXpath>
+	</System_Textbox_DisableCheck>
+
+	<Group_Textbox_DisableCheck>
+		<ElementXpath>//label[text()='GROUP']/following-sibling::div[@class='k-form-field-wrap']//span[contains(@class,'k-disabled telerik-blazor')]//input</ElementXpath>
+	</Group_Textbox_DisableCheck>
+
+	<Value_Textbox_EditConfigScreen>
+		<ElementXpath>//label[text()='VALUE']/following-sibling::div//span[contains(@class,'telerik-blazor')]//following-sibling::input</ElementXpath>
+	</Value_Textbox_EditConfigScreen>
+
+	<ToastMessage_Close>
+		<ElementXpath>//i[@class='blazored-toast-close-icon']</ElementXpath>
+	</ToastMessage_Close>
+
+	<Fetch_Id_Text_RowNumber>
+		<ElementXpath>//tr</ElementXpath>
+	</Fetch_Id_Text_RowNumber>
+
+	<Fetch_Id_Text_ColValues>
+		<ElementXpath>//td</ElementXpath>
+	</Fetch_Id_Text_ColValues>
+
+	<Fetch_IDColHeaderValue>
+		<ElementXpath>//th[@data-text='ID']</ElementXpath>
+	</Fetch_IDColHeaderValue>
+
+	<Fetch_NameColHeaderValue>
+		<ElementXpath>//th[@data-text='NAME']</ElementXpath>
+	</Fetch_NameColHeaderValue>
+
+	<Fetch_ValueColHeaderValue>
+		<ElementXpath>//th[@data-text='VALUE']</ElementXpath>
+	</Fetch_ValueColHeaderValue>
+
+	<Fetch_DescriptionColHeaderValue>
+		<ElementXpath>//th[@data-text='DESCRIPTION']</ElementXpath>
+	</Fetch_DescriptionColHeaderValue>
+
+	<Fetch_SystemColHeaderValue>
+		<ElementXpath>//th[@data-text='SYSTEM']</ElementXpath>
+	</Fetch_SystemColHeaderValue>
+
+	<Fetch_GroupColHeaderValue>
+		<ElementXpath>//th[@data-text='GROUP']</ElementXpath>
+	</Fetch_GroupColHeaderValue>
+
+	<CancelBtn_AddConfigFlow>
+		<ElementXpath>//span[text()='Cancel']</ElementXpath>
+	</CancelBtn_AddConfigFlow>
+
+	<Configuration_SortByNameColumn>
+		<ElementXpath>(//span[contains(@class,'k-icon k-i-more-vertical')])[2]</ElementXpath>
+	</Configuration_SortByNameColumn>
+
+	<Configuration_NameDescendingSortValueSelect>
+		<ElementXpath>//div[@class='k-columnmenu-item ']//span[@class='k-icon k-i-sort-desc-small']</ElementXpath>
+	</Configuration_NameDescendingSortValueSelect>
+
+
+</ConfigurationScreen>
+
+
+
+

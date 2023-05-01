@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<AircraftTypeScreen>
+
+	<Add_Btn>
+		<ElementXpath>//span[text()='ADD']</ElementXpath>
+	</Add_Btn>
+	
+	<AircraftTab_Btn>
+		<ElementXpath>//span[text()='Aircraft Type']</ElementXpath>
+	</AircraftTab_Btn>
+
+	<AircraftType_ICAO>
+		<ElementXpath>//label[text()='ICAO']/following-sibling::div//span[contains(@class,'telerik-blazor')]//following-sibling::input</ElementXpath>
+	</AircraftType_ICAO>
+
+	<AircraftType_IATA>
+		<ElementXpath>//label[text()='IATA']/following-sibling::div//span[contains(@class,'telerik-blazor')]//following-sibling::input</ElementXpath>
+	</AircraftType_IATA>
+
+	<AircraftType_Engine>
+		<ElementXpath>//label[text()='ENGINE']/following-sibling::div//span[contains(@class,'telerik-blazor')]//following-sibling::input</ElementXpath>
+	</AircraftType_Engine>
+
+	<AircraftType_TypeName>
+		<ElementXpath>//label[text()='TYPE NAME']/following-sibling::div//span[contains(@class,'telerik-blazor')]//following-sibling::input</ElementXpath>
+	</AircraftType_TypeName>
+
+	<AircraftType_NoOfEngines>
+		<ElementXpath>//label[text()='# OF ENGINES']/following-sibling::div//span[contains(@class,'telerik-blazor')]//following-sibling::span//button[contains(@class,'k-spinner-increase')]</ElementXpath>
+	</AircraftType_NoOfEngines>
+
+	<AircraftType_SizeCode>
+		<ElementXpath>//label[text()='SIZE CODE']/following-sibling::div//span[contains(@class,'telerik-blazor')]//following-sibling::input</ElementXpath>
+	</AircraftType_SizeCode>
+
+	<AircraftType_SpeedClass>
+		<ElementXpath>//label[text()='SPEED CLASS']/following-sibling::div//span[contains(@class,'telerik-blazor')]//following-sibling::input</ElementXpath>
+	</AircraftType_SpeedClass>
+
+	<AircraftType_Width>
+		<ElementXpath>//label[text()='WIDTH']/following-sibling::div//span[contains(@class,'telerik-blazor')]//following-sibling::span//button[contains(@class,'k-spinner-increase')]</ElementXpath>
+	</AircraftType_Width>
+
+	<AircraftType_CategoryName>
+		<ElementXpath>//span[contains(@class,'k-dropdownlist telerik-blazor')]//button</ElementXpath>
+	</AircraftType_CategoryName>
+
+	<AircraftType_CategoryNameValueSelection>
+		<!--<ElementXpath>//div[@class='k-list-content k-list-scroller']//ul[@aria-label='Select Category']//li//span[text()='Super Heavy']</ElementXpath>-->
+		<ElementXpath>//div[@class='k-list-content k-list-scroller']//following-sibling::ul//li//span[text()='Super Heavy']</ElementXpath>
+	</AircraftType_CategoryNameValueSelection>
+
+	<AircraftType_CategoryNameValueLightSelection>
+		<ElementXpath>//div[@class='k-list-content k-list-scroller']//following-sibling::ul//li[6]//span[text()='Light']</ElementXpath>
+	</AircraftType_CategoryNameValueLightSelection>
+
+	<ToastMessage_Close>
+		<ElementXpath>//i[@class='blazored-toast-close-icon']</ElementXpath>
+	</ToastMessage_Close>
+
+	<Update_Btn>
+		<ElementXpath>//span[text()='Update']</ElementXpath>
+	</Update_Btn>
+
+	<ErrorMessages_Screen>
+		<ElementXpath>//ul[@class='validation-errors']//li</ElementXpath>
+	</ErrorMessages_Screen>
+
+	<AircraftType_NoOfEngines_Negative>
+		<ElementXpath>//label[text()='# OF ENGINES']/following-sibling::div//span[contains(@class,'telerik-blazor')]//following-sibling::span//button[contains(@class,'k-spinner-decrease')]</ElementXpath>
+	</AircraftType_NoOfEngines_Negative>
+
+	<AircraftType_SortTypeNameColumn>
+		<ElementXpath>(//span[contains(@class,'k-icon k-i-more-vertical')])[4]</ElementXpath>
+	</AircraftType_SortTypeNameColumn>
+
+	<AircraftType_TypeNameDescendingSortValueSelect>
+		<ElementXpath>//div[@class='k-columnmenu-item ']//span[@class='k-icon k-i-sort-desc-small']</ElementXpath>
+	</AircraftType_TypeNameDescendingSortValueSelect>
+
+
+</AircraftTypeScreen>
+
+
+
+

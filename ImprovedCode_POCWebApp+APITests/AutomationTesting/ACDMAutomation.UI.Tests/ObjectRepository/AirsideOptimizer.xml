@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<AirsideOptimizer>
+	<LogIn_Btn>
+		<ElementXpath>//button[@id='loginButton']</ElementXpath>
+	</LogIn_Btn>
+
+	<LogInUserName_Btn>
+		<ElementXpath>//input[contains(@type,'email')]</ElementXpath>
+	</LogInUserName_Btn>
+
+	<Password_Btn>
+		<ElementXpath>//input[@id='passwordInput']</ElementXpath>
+	</Password_Btn>
+
+	<SignIn_Btn>
+		<ElementXpath>//span[@id='submitButton']</ElementXpath>
+	</SignIn_Btn>
+
+	<Submit_Btn>
+		<ElementXpath>//input[@type='submit']</ElementXpath>
+	</Submit_Btn>
+	
+	<ResourceData_Tab>
+		<ElementXpath>//li[contains(@class,'')]//div[contains(@title,'Resource Data Configuration')]</ElementXpath>	
+	</ResourceData_Tab>
+
+	<Fetch_Id_Text_RowNumber>
+		<ElementXpath>//tr</ElementXpath>
+	</Fetch_Id_Text_RowNumber>
+
+	<Fetch_Id_Text_ColValues>
+		<ElementXpath>//td</ElementXpath>
+	</Fetch_Id_Text_ColValues>
+
+	<Fetch_Id_Text_Col_HeaderValues>
+		<ElementXpath>//th</ElementXpath>
+	</Fetch_Id_Text_Col_HeaderValues>
+
+	<ToastMessageValidation>
+		<ElementXpath>//p[@class='blazored-toast-message']</ElementXpath>
+	</ToastMessageValidation>
+
+	<SuccessDelete_ToastMessage>
+		<ElementXpath>//p[text()='Successfully Deleted.']</ElementXpath>
+	</SuccessDelete_ToastMessage>
+
+	<Fetch_DynamicRowNumber>
+		<ElementXpath>//tr</ElementXpath>
+	</Fetch_DynamicRowNumber>
+
+	<Fetch_DynamicColNumber>
+		<ElementXpath>//td</ElementXpath>
+	</Fetch_DynamicColNumber>
+
+	<Fetch_IDColHeaderValue>
+		<ElementXpath>//th[@data-text='ID']</ElementXpath>
+	</Fetch_IDColHeaderValue>
+
+	<Fetch_IATAColHeaderValue>
+		<ElementXpath>//th[@data-text='IATA']</ElementXpath>
+	</Fetch_IATAColHeaderValue>
+
+	<Fetch_ICAOColHeaderValue>
+		<ElementXpath>//th[@data-text='ICAO']</ElementXpath>
+	</Fetch_ICAOColHeaderValue>
+
+	<Fetch_EngineColHeaderValue>
+		<ElementXpath>//th[@data-text='ENGINE']</ElementXpath>
+	</Fetch_EngineColHeaderValue>
+
+	<Fetch_TypeNameColHeaderValue>
+		<ElementXpath>//th[@data-text='TYPE NAME']</ElementXpath>
+	</Fetch_TypeNameColHeaderValue>
+
+	<Fetch_NoOfEnginesColHeaderValue>
+		<ElementXpath>//th[@data-text='# OF ENGINES']</ElementXpath>
+	</Fetch_NoOfEnginesColHeaderValue>
+
+	<Fetch_SizeCodeColHeaderValue>
+		<ElementXpath>//th[@data-text='SIZE CODE']</ElementXpath>
+	</Fetch_SizeCodeColHeaderValue>
+
+	<Fetch_SpeedClassColHeaderValue>
+		<ElementXpath>//th[@data-text='SPEED CLASS']</ElementXpath>
+	</Fetch_SpeedClassColHeaderValue>
+
+	<Fetch_WidthColHeaderValue>
+		<ElementXpath>//th[@data-text='WIDTH']</ElementXpath>
+	</Fetch_WidthColHeaderValue>
+
+	<Fetch_CategoryNameColHeaderValue>
+		<ElementXpath>//th[@data-text='CATEGORY NAME']</ElementXpath>
+	</Fetch_CategoryNameColHeaderValue>
+
+	<DeleteRecordDetails>
+		<ElementXpath>//span[@class='k-icon k-i-delete k-button-icon']</ElementXpath>
+	</DeleteRecordDetails>
+
+	<Warning_Message_Popup_Text>
+		<ElementXpath>//div[@class='k-content k-window-content k-dialog-content']</ElementXpath>
+	</Warning_Message_Popup_Text>
+
+	<EditRecordDetails>
+		<ElementXpath>//span[@class='k-icon k-i-edit k-button-icon']</ElementXpath>
+	</EditRecordDetails>
+
+	<Delete_Btn>
+		<ElementXpath>//span[text()='CONFIRM']</ElementXpath>
+	</Delete_Btn>
+
+	<Cancel_Btn>
+		<ElementXpath>//span[text()='CANCEL']</ElementXpath>
+	</Cancel_Btn>
+
+	<LastPage_Btn>
+		<ElementXpath>//a[@title='Go to the last page']</ElementXpath>
+	</LastPage_Btn>
+	
+</AirsideOptimizer>
+
+
+
+
