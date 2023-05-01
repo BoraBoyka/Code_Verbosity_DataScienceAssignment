@@ -7,7 +7,7 @@
     <Server serverUrl="http://specrunserver:6365" publishResults="true" />
   -->
 	<TestAssemblyPaths>
-		<TestAssemblyPath>AutomationTesting.dll</TestAssemblyPath>
+		<TestAssemblyPath>ACDMAutomation.dll</TestAssemblyPath>
 	</TestAssemblyPaths>
 	<DeploymentTransformation>
 		<Steps>

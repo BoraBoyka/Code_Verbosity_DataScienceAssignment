@@ -1,0 +1,121 @@
+﻿	<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net7.0</TargetFramework>
+		<EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+		<UserSecretsId>f38838d2-a7b8-4be3-8568-76a0bc1c20d9</UserSecretsId>
+		<!--SignAssembly>false</SignAssembly-->
+	</PropertyGroup>
+  
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+		<OutputPath></OutputPath>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <SpecFlowObsoleteCodeBehindFiles Remove="Features\AircraftTypeAPITests - Copy.feature.cs" />
+	  <SpecFlowObsoleteCodeBehindFiles Remove="Features\CrudAPIStands - Copy.feature.cs" />
+	  <SpecFlowObsoleteCodeBehindFiles Remove="Features\CrudAPIWakeTurbulenceCategory - Copy.feature.cs" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Acdm.InformationServices.Dto" Version="3.5.0" />
+		<PackageReference Include="ExtentReports" Version="4.1.0" />
+		<PackageReference Include="JWTMakerLib" Version="1.0.2210.1002" />
+		<PackageReference Include="Microsoft.Data.SqlClient" Version="5.1.1" />
+		<PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="7.0.0" />
+		<PackageReference Include="Microsoft.Identity.Client" Version="4.53.0" />
+		<PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.5.0" />
+		<PackageReference Include="Microsoft.NETCore.App" Version="2.2.8" />
+		<PackageReference Include="MSTest.TestAdapter" Version="3.0.2" />
+		<PackageReference Include="MSTest.TestFramework" Version="3.0.2" />
+		<PackageReference Include="RestSharp.Newtonsoft.Json" Version="1.5.1" />
+		<PackageReference Include="Selenium.Support" Version="4.9.0" />
+		<PackageReference Include="Selenium.WebDriver" Version="4.9.0" />
+		<PackageReference Include="SeleniumExtras.WaitHelpers" Version="1.0.2" />
+		<PackageReference Include="SpecFlow" Version="3.9.74" />
+		<PackageReference Include="SpecFlow.Assist.Dynamic" Version="1.4.2" />
+		<PackageReference Include="SpecFlow.MsTest" Version="3.9.74" />
+		<PackageReference Include="SpecFlow.Plus.LivingDocPlugin" Version="3.9.57" />
+		<PackageReference Include="SpecFlow.Tools.MsBuild.Generation" Version="3.9.74" />
+		<PackageReference Include="WebDriverManager" Version="2.16.2" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Compile Include="API\DTO_Authentication\APIAuthentication.cs" />
+		<Compile Include="AssemblyInfo.cs" />
+		<Compile Include="Drivers\Startup.cs" />
+		<Compile Include="Features\SharedParentCode.feature.cs">
+		  <DesignTime>True</DesignTime>
+		  <AutoGen>True</AutoGen>
+		  <DependentUpon>SharedParentCode.feature</DependentUpon>
+		</Compile>
+		<Compile Include="Hooks\APIBaseMethods.cs" />
+		<Compile Include="Hooks\CrudAPIBaseMethods.cs" />
+		<Compile Include="Hooks\DataSheet.cs" />
+		<Compile Include="Hooks\HookInitialization.cs" />
+		<Compile Include="Hooks\RestAPICommonMethods.cs" />
+		<Compile Include="Hooks\SQLConstants_SidAndSidSeparation.cs" />
+		<Compile Include="Hooks\SQLConstants_DepartureFlight.cs" />
+		<Compile Include="Hooks\SQLConstants_ArrivalFlight.cs" />
+		<Compile Include="Hooks\SQLConstants_Flight.cs" />
+		<Compile Include="Hooks\SQLConstants_TaxiSequenceAndSite.cs" />
+		<Compile Include="Hooks\SQLConstants_StandStandAreaRunway.cs" />
+		<Compile Include="Hooks\SQLConstants_UnmatchedFlightPlan.cs" />
+		<Compile Include="Hooks\SQLConstants_WakeTurbulenceAndSeparation.cs" />
+		<Compile Include="Hooks\SQLConstants_AircraftTypeAndAirline.cs" />
+		<Compile Include="Hooks\SQLConstants_Configuration.cs" />
+		<Compile Include="Hooks\SQLQueries.Designer.cs">
+		  <DesignTime>True</DesignTime>
+		  <AutoGen>True</AutoGen>
+		  <DependentUpon>SQLQueries.resx</DependentUpon>
+		</Compile>
+	
+	<Compile Include="PageObjects\APITests.cs" />
+	
+	<Compile Include="PageObjects\CommonOperationUtils.cs" />
+	</ItemGroup>
+	<ItemGroup>
+		<Compile Include="Steps\JWTAuthSteps.cs" />
+		<Compile Include="Steps\SQLGenericSteps.cs" />
+	</ItemGroup>
+	<ItemGroup>
+		<Compile Include="Utils\Utilities.cs" />
+	</ItemGroup>
+	<ItemGroup>
+	  <EmbeddedResource Update="Hooks\SQLQueries.resx">
+	    <Generator>ResXFileCodeGenerator</Generator>
+	    <LastGenOutput>SQLQueries.Designer.cs</LastGenOutput>
+	  </EmbeddedResource>
+	</ItemGroup>
+
+	<!--ItemGroup>
+	  <Reference Include="APVeAutomation">		 
+		  <HintPath>..\..\APVeAutomation\bin\Debug\netcoreapp3.1\APVeAutomation.dll</HintPath>
+	  </Reference>
+	</ItemGroup-->
+
+	<ItemGroup>
+		<None Update="appSettings.json">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</None>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <SpecFlowFeatureFiles Update="Features\SharedParentCode.feature">
+	    <Generator>SpecFlowSingleFileGenerator</Generator>
+	    <LastGenOutput>SharedParentCode.feature.cs</LastGenOutput>
+	  </SpecFlowFeatureFiles>
+	</ItemGroup>
+	
+	<Target Name="PostPublish" BeforeTargets="Publish">
+		<Exec Command="move $(PublishDir)\runtimes $(PublishDir)\bin" />
+	</Target>
+
+	<Target Name="VSTestIfTestProject">
+		<CallTarget Targets="VSTest" Condition="'$(IsTestProject)' == 'true'" />
+	</Target>
+
+	<Target Name="VSTest">
+		<MSBuild Projects="@(ProjectReference)" Targets="VSTestIfTestProject" />
+	</Target>
+</Project>
